@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MedCare | About Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="logo">MedCare</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active">about Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="about-us">
+    <div class="container fade-in">
+      <h2>About MedCare</h2>
+      <p>Founded with a mission to provide quality healthcare, MedCare has been committed to improving the well-being of our community.</p>
+    </div>
+  </section>
+
+  <section class="mission-history">
+    <div class="container fade-in">
+      <div class="mission">
+        <h3>Our Mission</h3>
+        <p>At MedCare, our mission is to provide comprehensive, compassionate care to all our patients. We strive to deliver healthcare that prioritizes the needs of the individual.</p>
+      </div>
+      <div class="history">
+        <h3>Our History</h3>
+        <p>MedCare was founded in 2010 with the aim of revolutionizing healthcare in our community. Over the years, we’ve grown into one of the most trusted healthcare providers in the region.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="values">
+    <div class="container fade-in">
+      <h3>Our Core Values</h3>
+      <ul>
+        <li>Compassion - Treating patients with care and respect</li>
+        <li>Excellence - Offering the highest standard of medical services</li>
+        <li>Integrity - Always maintaining transparency and honesty</li>
+        <li>Innovation - Utilizing the latest technology in medical care</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="image-section">
+    <div class="container fade-in">
+      <h3>Our Commitment to Quality Care</h3>
+      <img src="doctors.png" alt="MedCare Team" class="about-image"/>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 MedCare. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = {
+      threshold: 0.3,
+      rootMargin: "0px 0px -50px 0px"
+    };
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll){
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('appear');
+        appearOnScroll.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+</body>
+</html>

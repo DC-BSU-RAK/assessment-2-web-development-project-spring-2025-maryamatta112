@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MedCare | Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="logo">MedCare</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content fade-in">
+      <h2>Your Health, Our Priority</h2>
+      <p>We provide trusted, compassionate medical care with the latest technology and a human touch.</p>
+      <a href="services.html" class="btn">Explore Services</a>
+    </div>
+    <img src="image banner.jpg" alt="Doctor with patient" class="hero-img fade-in"/>
+  </section>
+
+  <section class="features">
+    <div class="feature fade-in">
+      <img src="Stethoscope 3.webp" alt="Stethoscope icon"/>
+      <h3>Quality Care</h3>
+      <p>Delivered by certified professionals using cutting-edge tools.</p>
+    </div>
+    <div class="feature fade-in">
+      <img src="final hospital.jpg".avif"Hospital icon"/>
+      <h3>Modern Facility</h3>
+      <p>Our state-of-the-art medical center ensures the best patient experience.</p>
+    </div>
+    <div class="feature fade-in">
+      <img src="24 HOUR 8.avif" alt="24/7 icon"/>
+      <h3>24/7 Support</h3>
+      <p>Emergency care available round the clock with just one call.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 MedCare. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Simple fade-in effect on scroll
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = {
+      threshold: 0.3,
+      rootMargin: "0px 0px -50px 0px"
+    };
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll){
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('appear');
+        appearOnScroll.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MedCare | Our Team</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="logo">MedCare</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="team.html" class="active">Our Team</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="team-section">
+    <div class="container fade-in">
+      <h2>Meet Our Expert Team</h2>
+      <p>Our dedicated team of professionals works tirelessly to provide top-quality care to our patients. Get to know the people who make it all possible.</p>
+    </div>
+
+    <div class="team-cards">
+      <div class="card fade-in">
+        <img src="john smit.jpeg" alt="Dr. John Smith" class="team-image" />
+        <h3>Dr. John Smith</h3>
+        <p>Chief Medical Officer</p>
+        <p>Dr. Smith leads MedCare’s healthcare team with over 20 years of experience in the medical field.</p>
+      </div>
+      <div class="card fade-in">
+        <img src="emily brown.jpg" alt="Dr. Emily Brown" class="team-image" />
+        <h3>Dr. Emily Brown</h3>
+        <p>Surgeon</p>
+        <p>Specialized in advanced surgeries, Dr. Brown is passionate about providing the best care for her patients.</p>
+      </div>
+      <div class="card fade-in">
+        <img src="dc michael.jpg" alt="Dr. Michael Davis" class="team-image" />
+        <h3>Dr. Michael Davis</h3>
+        <p>Pediatrician</p>
+        <p>Dr. Davis ensures children receive the highest quality of healthcare with compassion and care.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 MedCare. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = {
+      threshold: 0.3,
+      rootMargin: "0px 0px -50px 0px"
+    };
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll){
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('appear');
+        appearOnScroll.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+</body>
+</html>
